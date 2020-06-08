@@ -112,7 +112,7 @@ if(!isIconWithTintColor()){
   skinConfig.iconTintColorRes = 0;
   itemView.setSkinConfig(skinConfig);
 }
-``
+```
 
 ### 4.DialogFragment、Fragment、Dialog等
 
