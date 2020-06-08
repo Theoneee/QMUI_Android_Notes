@@ -45,7 +45,7 @@ attr 是一个变量，给一个名字 name , 给它一个类型 format , 一个
         app:qmui_skin_text_color="?attr/app_skin_primary_color" />
 ```
 
-当主题切换后，这个设置了的TextView的字体颜色就会随着配置的主题颜色的不一样而发生改变。
+当主题切换后，这个设置了的**TextView**的字体颜色就会随着配置的主题颜色的不一样而发生改变。
 
 其他属性同理。
 
@@ -56,9 +56,9 @@ attr 是一个变量，给一个名字 name , 给它一个类型 format , 一个
 
 ### 1.如何让自定义的View也能换肤？
 
-比如有一个自定义的ProgressBar,Bar的颜色我们要根据主题色的变化而变化。
+比如有一个自定义的**ProgressBar**,**Bar**的颜色我们要根据主题色的变化而变化。
 
-首先，View实现IQMUISkinHandlerView接口，然后在
+首先，**View**实现**IQMUISkinHandlerView**接口，然后在
 
 ```
     @Override
@@ -74,16 +74,16 @@ attr 是一个变量，给一个名字 name , 给它一个类型 format , 一个
     }
 ```
 
-handle就是通知你，主题改变了，你要做什么改变就在这里快点做啊。
+**handle**就是通知你，主题改变了，你要做什么改变就在这里快点做啊。
 
 ### 2.如何让一个View不要换肤？
 
-比如QMUITopBarLayout,有的界面我就希望它是透明的颜色，不要随着主题改变而改变。
+比如**QMUITopBarLayout**,有的界面我就希望它是透明的颜色，不要随着主题改变而改变。
 
-（目前QMUITopBarLayout还没有这个，我是Copy出来的，自己改，QMUI后续版本会有）
+（目前**QMUITopBarLayout**还没有这个，我是**Copy**出来的，自己改，**QMUI**后续版本会有）
 
-首先实现IQMUISkinDispatchInterceptor，在这里返回true,换肤就不会往下执行了,也会向子View传递了。
-这个我们可以在QMUI提供的QMUISkinManager里有这样写到
+首先实现**IQMUISkinDispatchInterceptor**，在这里返回**true**,换肤就不会往下执行了,也不会向**子View**传递了。
+这个我们可以在**QMUI**提供的**QMUISkinManager**里有这样写到
 
 ```
  private void runDispatch(@NonNull View view, int skinIndex, Resources.Theme theme) {
@@ -101,7 +101,7 @@ handle就是通知你，主题改变了，你要做什么改变就在这里快�
 
 ### 3.QMUIGroupListView
 
-当ICON有渐变色时，这个时候显示的ICON会因为tintColor让整个ICON全部变成一个颜色，所以这个时候要禁用掉，方法如下：
+当**ICON**有渐变色时，这个时候显示的**ICON**会因为**tintColor**让整个**ICON**全部变成一个颜色，所以这个时候要禁用掉，方法如下：
 
 ```
 QMUICommonListItemView itemView;
@@ -116,7 +116,7 @@ if(!isIconWithTintColor()){
 
 ### 4.DialogFragment、Fragment、Dialog等
 
-如果依附的Activity是QMUI提供的，那么只需要在这些里面注入QMUISkinManager
+如果依附的**Activity**是**QMUI**提供的，那么只需要在这些里面注入**QMUISkinManager**
 
 ```
 public abstract class BaseDialogFragment extends DialogFragment {
@@ -157,6 +157,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
 ```
 
-如果连Activity也不是，则根据[QMUISkin文档](https://github.com/Tencent/QMUI_Android/wiki/QMUI-%E6%8D%A2%E8%82%A4)第3点第1条写入即可。
+如果连**Activity**也不是，则根据[QMUISkin文档](https://github.com/Tencent/QMUI_Android/wiki/QMUI-%E6%8D%A2%E8%82%A4)第3点第1条写入即可。
 
 
